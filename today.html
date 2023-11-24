@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="today.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="today.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/e96d258b08.js" crossorigin="anonymous"></script>
+    <title>realme 5 i clock</title>
+
+</head>
+
+<body>
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-9 col-lg-3 main-container">
+
+                    <div class="icon_nav_bar" id="icon_nac_bar_id">
+                        <div id="edit">Edit</div>
+                        <div class="plus_colon">
+                            <div id="plus">&plus;</div>
+                            <div>&#58;</div>
+                        </div>
+                    </div>
+
+                    <div class="menu_bar" id="clock_bar_id">
+                        <div class="alarm menu_items" id="alarm_onclick">Alarm</div>
+                        <div class="clock menu_items" id="clock_onclick">Clock</div>
+                        <div class="stopwatch menu_items" id="stopwatch_onclick">Stopwatch</div>
+                        <!-- <div class="timer menu_items">Timer</div> -->
+                    </div>
+
+                    <div class="search_city_name_page_hidden" id="search_city_name_page_id">
+                        <div class="addclock_head">
+                            <div class="addclock_cancel" id="addclock_cancel-id">Cancel</div>
+                            <div class="addclock_txt">Add Clock</div>
+                        </div>
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Places.."
+                            title="Type in a name">
+
+                        <ul id="myUL">
+
+                        </ul>
+                    </div>
+
+                    <!-- <div class="time_zone_hidden" id="time_zone">
+                        <div class="clock_timeplace">
+                            <div class="clock_day_night">
+
+                            </div>
+                            <div class="timeplace">
+                                <span class="place" >Delhi</span>
+                                <span class="today">Today</span>
+                            </div>
+                        </div>
+                        <div class="display_time">
+                            10:51 <span class="AMPM">PM</span>
+                        </div>
+                    </div> -->
+                    <div class="city_time_display">
+                        <div id="addtime_zone">
+                            <div class="time_zone_hidden" id="time_zone">
+                                <div class="clock_timeplace">
+                                    <div class="clock_day_night">
+    
+                                    </div>
+                                    <div class="timeplace">
+                                        <div class="place" id="city"> Delhi</div>
+                                        <div class="today">Today</div>
+                                    </div>
+                                </div>
+                                <div class="display_time">
+                                    <div id="curr_time">10:50</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div id="setalarmpage">
+                        <div class="addalarm_hidden" id="addalarm_id">
+                            <div class="time" id="alarm_time">
+                                <div class="alarmtime">
+                                    <div id="alarm_hour">6</div>
+                                    <span>:</span>
+                                    <div id="alarm_min">30</div>
+                                    <div id="alarm_ampm">AM</div>
+                                    <div id="alarm_name">alarm</div>
+
+                                </div>
+                                <div class="onoff">
+                                    <label class="switch">
+                                        <input type="checkbox" id="onalarm_id">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="time_info">
+                                <div class="ring_once_custom" id="alarm_time_info">
+                                    <div>Ring once. &#x2223;</div>
+                                    <div class="remaining_time">Ring in <span id="remaining_hours">00</span> hr <span
+                                            id="remaining_mins">00</span> min</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stopwatch_box_hidden " id="stopwatch_box">
+                        <div class="stopwatch_timer">
+                            <div class="display_timer">
+                                <div class="minutes" id="min_id">00</div>
+                                <div class="colon" id="colon_id">:</div>
+                                <div class="seconds" id="sec_id">00</div>
+                                <div class="dot" id="dot_id">.</div>
+                                <div class="milliseconds" id="millisec_id">00</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="newalarm_hidden" id="newalarm_id">
+                        <header class="title">
+                            <div class="cancel" id="cancel_id">Cancel</div>
+                            <div class="nnewalarm">New alarm</div>
+                            <div class="save" id="savebtn_id">Save</div>
+                        </header>
+                        <div class="mainbody">
+                            <div class="remaintime">Alarm will ring in &nbsp;<div id="update_hour"> 00 </div> h &emsp13;
+                                <div id="update_min">00</div> min &emsp13; <div id="update_ampm"></div>
+                            </div>
+                            <!-- <div class="scrollbar_box"> -->
+
+                            <div class="scrollbar">
+                                <div class="setalarm_inscrollbar_hour">
+                                    <div class="hour" id="hour_id1">01</div>
+                                    <div class="hour" id="hour_id2">02</div>
+                                    <div class="hour" id="hour_id3">03</div>
+                                    <div class="hour" id="hour_id4">04</div>
+                                    <div class="hour" id="hour_id5">05</div>
+                                    <div class="hour" id="hour_id6">06</div>
+                                    <div class="hour" id="hour_id7">07</div>
+                                    <div class="hour" id="hour_id8">08</div>
+                                    <div class="hour" id="hour_id9">09</div>
+                                    <div class="hour" id="hour_id10">10</div>
+                                    <div class="hour" id="hour_id11">11</div>
+                                    <div class="hour" id="hour_id12">12</div>
+                                    <div class="hour"> </div>
+                                    <div class="hour"> </div>
+                                </div>
+
+                                <div class="setalarm_inscrollbar_minute">
+                                    <div class="min" id="min_id1">01</div>
+                                    <div class="min" id="min_id2">02</div>
+                                    <div class="min" id="min_id3">03</div>
+                                    <div class="min" id="min_id4">04</div>
+                                    <div class="min" id="min_id5">05</div>
+                                    <div class="min" id="min_id6">06</div>
+                                    <div class="min" id="min_id7">07</div>
+                                    <div class="min" id="min_id8">08</div>
+                                    <div class="min" id="min_id9">09</div>
+                                    <div class="min" id="min_id10">10</div>
+                                    <div class="min" id="min_id11">11</div>
+                                    <div class="min" id="min_id12">12</div>
+                                    <div class="min" id="min_id13">13</div>
+                                    <div class="min" id="min_id14">14</div>
+                                    <div class="min" id="min_id15">15</div>
+                                    <div class="min" id="min_id16">16</div>
+                                    <div class="min" id="min_id17">17</div>
+                                    <div class="min" id="min_id18">18</div>
+                                    <div class="min" id="min_id19">19</div>
+                                    <div class="min" id="min_id20">20</div>
+                                    <div class="min" id="min_id21">21</div>
+                                    <div class="min" id="min_id22">22</div>
+                                    <div class="min" id="min_id23">23</div>
+                                    <div class="min" id="min_id24">24</div>
+                                    <div class="min" id="min_id25">25</div>
+                                    <div class="min" id="min_id26">26</div>
+                                    <div class="min" id="min_id27">27</div>
+                                    <div class="min" id="min_id28">28</div>
+                                    <div class="min" id="min_id29">29</div>
+                                    <div class="min" id="min_id30">30</div>
+                                
+                                    <div class="min" id="min_id31">31</div>
+                                    <div class="min" id="min_id32">32</div>
+                                    <div class="min" id="min_id33">33</div>
+                                    <div class="min" id="min_id34">34</div>
+                                    <div class="min" id="min_id35">35</div>
+                                    <div class="min" id="min_id36">36</div>
+                                    <div class="min" id="min_id37">37</div>
+                                    <div class="min" id="min_id38">38</div>
+                                    <div class="min" id="min_id39">39</div>
+                                    <div class="min" id="min_id40">40</div>
+                                    <div class="min" id="min_id41">41</div>
+                                    <div class="min" id="min_id42">42</div>
+                                    <div class="min" id="min_id43">43</div>
+                                    <div class="min" id="min_id44">44</div>
+                                    <div class="min" id="min_id45">45</div>
+                                    <div class="min" id="min_id46">46</div>
+                                    <div class="min" id="min_id47">47</div>
+                                    <div class="min" id="min_id48">48</div>
+                                    <div class="min" id="min_id49">49</div>
+                                    <div class="min" id="min_id50">50</div>
+                                    <div class="min" id="min_id51">51</div>
+                                    <div class="min" id="min_id52">52</div>
+                                    <div class="min" id="min_id53">53</div>
+                                    <div class="min" id="min_id54">54</div>
+                                    <div class="min" id="min_id55">55</div>
+                                    <div class="min" id="min_id56">56</div>
+                                    <div class="min" id="min_id57">57</div>
+                                    <div class="min" id="min_id58">58</div>
+                                    <div class="min" id="min_id59">59</div> 
+                                   <div class="min" id="min_id60">60</div>
+                                    <div class="min"> </div>
+
+                                    <div class="min"> </div>
+                                </div>
+                                <div class="setalarm_inscrollbar_ampm">
+                                    <div class="ampm" id="ampm_id1">AM</div>
+                                    <div class="ampm" id="ampm_id2">PM</div>
+                                    <div class="ampm"> </div>
+                                    <div class="ampm"> </div>
+                                    <!-- </div>  -->
+                                </div>
+                                <div class="time_box">
+                                    <input type="text" class="time_input_box" disabled>
+                                </div>
+
+                            </div>
+
+                            <div class="alarm_edit_btn">
+                                <button class="ringonce" id="ring_id">Ring once</button>
+                                <button class="custom" id="custom_id">Custom</button>
+                            </div>
+
+                        </div>
+                        <footer class="newalarmfooter">
+                            <div class="custom_repeat_hidden" id="custom_repeat_id">
+
+                                Repeat
+
+
+                                <select name="repeat" id="">
+                                    <option value="">Select</option>
+                                    <option value="monday">Every Monday</option>
+                                    <option value="tuesday">Every Tuesday</option>
+                                    <option value="wednesday">Every Wednesday</option>
+                                    <option value="thursday">Every Thursday</option>
+                                    <option value="friday">Every Friday</option>
+                                    <option value="saturday">Every Saturday</option>
+                                    <option value="sunday">Every Sunday</option>
+                                    <option value="everyday">Every day</option>
+                                </select>
+
+
+                            </div>
+                            <div class="alarm_name">
+                                <label for="alarm_name_ip">Alarm name</label>
+                                <input type="text" id="alarm_name_ip" placeholder="Alarm">
+                            </div>
+                            <div class="more">
+                                <div class="morebtn" id="morebtn_id">More</div>
+
+                                <div class="more_hidden" id="morehidden_id">
+
+                                    <div class="ringtone">
+                                        <label for="">Ringtone</label>
+                                        <div class="arrow">&gt;</div>
+                                    </div>
+
+
+                                    <div class="vibrate">
+                                        <p>Vibrate</p>
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                    <div class="snooze">
+                                        <label for="snooze_id">Snooze</label>
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+
+                    <div class="stopwatch_lapse_time_hidden" id="stopwatch_lapse_id">
+                        <div class="sno" id="sno_id"></div>
+                        <div class="lapse_time" id="lapse_time_id"></div>
+                        <div class="differ_time" id="differ_time_id"></div>
+                    </div>
+
+                    <div class="stopwatch_btn_hidden" id="stopwatch_btn_box">
+                        <button class="start_class" id="start_id">Start</button>
+                        <button class="laps_class" id="laps_id">Lap</button>
+                        <button class="pause_class" id="pause_id">Pause</button>
+                        <button class="reset_class" id="reset_id">Reset</button>
+                        <button class="resume_class" id="resume_id">Resume</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
